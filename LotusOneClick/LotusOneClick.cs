@@ -225,7 +225,7 @@ public static class LotusOneClickProgram
     private static async Task DownloadFileAsync(string url, string destinationPath)
     {
         using var client = new HttpClient();
-        client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("lol.eps.LotusOneClick", "1.0"));
+        client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(UserAgent, "1.0"));
 
         using var response = await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
         response.EnsureSuccessStatusCode();
